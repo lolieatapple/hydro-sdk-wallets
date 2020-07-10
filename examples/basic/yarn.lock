@@ -189,9 +189,9 @@
     "@ethersproject/constants" "^5.0.0"
     "@ethersproject/logger" "^5.0.0"
 
-"@gongddex/hydro-sdk-wallet@0.0.155":
+"eth-sdk-wallet@0.0.155":
   version "0.0.155"
-  resolved "https://registry.npmjs.org/@gongddex/hydro-sdk-wallet/-/hydro-sdk-wallet-0.0.155.tgz#bba3022cd8c6561e63d66296974124c1b930a91e"
+  resolved "https://registry.npmjs.org/eth-sdk-wallet/-/hydro-sdk-wallet-0.0.155.tgz#bba3022cd8c6561e63d66296974124c1b930a91e"
   integrity sha512-shYNkLxD3T8LIimOKOr+wS80xXxpbZfoZbYwTiirsnhmpGE6WzD5SsUTXSDCaoPuBXCdHayIKfRh8tJctDtXiw==
   dependencies:
     "@ledgerhq/hw-app-eth" "5.17.0"

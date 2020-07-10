@@ -28,7 +28,7 @@ This package requires `React` and `Redux`.
 
 ### Step1: install npm package
 
-`npm i @gongddex/hydro-sdk-wallet`
+`npm i eth-sdk-wallet`
 
 ### Step2: Wallet Reducer
 
@@ -36,7 +36,7 @@ The store should know how to handle actions coming from the wallet components. T
 
 ```javascript
 import { createStore, combineReducers } from "redux";
-import { EthWalletReducer } from "@gongddex/hydro-sdk-wallet";
+import { EthWalletReducer } from "eth-sdk-wallet";
 
 const rootReducer = combineReducers({
   // ...your other reducers here
@@ -54,9 +54,9 @@ To make the wallet logic work. We need to mount the `Wallet` and `WalletButton` 
 ```javascript
 import React from "react";
 import { Provider } from "react-redux";
-import { Wallet, WalletButton } from "@gongddex/hydro-sdk-wallet";
+import { Wallet, WalletButton } from "eth-sdk-wallet";
 import { store } from "./store";
-import "@gongddex/hydro-sdk-wallet/index.css";
+import "eth-sdk-wallet/index.css";
 
 class App extends React.Component {
   render() {
