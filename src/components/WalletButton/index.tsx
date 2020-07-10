@@ -47,7 +47,7 @@ class WalletButton extends React.PureComponent<Props, any> {
 }
 
 export default connect((state: any) => {
-  const walletState: WalletState = state.WalletReducer;
+  const walletState: WalletState = state.EthWalletReducer;
 
   return {
     selectedAccount: getSelectedAccount(state),

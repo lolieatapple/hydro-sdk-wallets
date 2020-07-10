@@ -31,12 +31,12 @@ interface State {
   gotoPageInputValue: number;
 }
 
-const mapStateToProps = (state: { WalletReducer: WalletState }, ownProps: { walletClass: typeof HardwareWallet }) => {
+const mapStateToProps = (state: { EthWalletReducer: WalletState }, ownProps: { walletClass: typeof HardwareWallet }) => {
   const account = getAccount(state, ownProps.walletClass.TYPE);
   return {
     wallet: account ? (account.get("wallet") as HardwareWallet) : null,
     isLocked: account ? account.get("isLocked") : true,
-    walletTranslations: state.WalletReducer.get("walletTranslations")
+    walletTranslations: state.EthWalletReducer.get("walletTranslations")
   };
 };
 

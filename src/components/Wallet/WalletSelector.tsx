@@ -22,7 +22,7 @@ interface Props {
 interface State {}
 
 const mapStateToProps = (state: any) => {
-  const walletState: WalletState = state.WalletReducer;
+  const walletState: WalletState = state.EthWalletReducer;
   const selectedAccountID = walletState.get("selectedAccountID");
   const accounts = walletState.get("accounts");
   return {

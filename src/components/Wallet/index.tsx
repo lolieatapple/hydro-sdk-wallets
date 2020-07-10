@@ -628,7 +628,7 @@ class Wallet extends React.PureComponent<Props, State> {
 }
 
 export default connect((state: any) => {
-  const walletState: WalletState = state.WalletReducer;
+  const walletState: WalletState = state.EthWalletReducer;
 
   return {
     walletTranslations: walletState.get("walletTranslations"),

@@ -1,39 +1,39 @@
 import { AccountState, WalletState } from "../reducers/wallet";
 import { BaseWallet } from "../wallets";
 
-export const getAccounts = (state: { WalletReducer: WalletState }): Map<string, AccountState> | null => {
-  return state.WalletReducer.getIn(["accounts"], null);
+export const getAccounts = (state: { EthWalletReducer: WalletState }): Map<string, AccountState> | null => {
+  return state.EthWalletReducer.getIn(["accounts"], null);
 };
 
-export const getSelectedAccount = (state: { WalletReducer: WalletState }): AccountState | null => {
-  const selectedAccountID = state.WalletReducer.get("selectedAccountID");
+export const getSelectedAccount = (state: { EthWalletReducer: WalletState }): AccountState | null => {
+  const selectedAccountID = state.EthWalletReducer.get("selectedAccountID");
 
   if (!selectedAccountID) {
     return null;
   }
 
-  return state.WalletReducer.getIn(["accounts", selectedAccountID], null);
+  return state.EthWalletReducer.getIn(["accounts", selectedAccountID], null);
 };
 
 export const getAccount = (
   state: {
-    WalletReducer: WalletState;
+    EthWalletReducer: WalletState;
   },
   accountID: string
 ): AccountState | null => {
-  return state.WalletReducer.getIn(["accounts", accountID], null);
+  return state.EthWalletReducer.getIn(["accounts", accountID], null);
 };
 
-export const getSelectedAccountWallet = (state: { WalletReducer: WalletState }): BaseWallet | null => {
+export const getSelectedAccountWallet = (state: { EthWalletReducer: WalletState }): BaseWallet | null => {
   const selectedAccount = getSelectedAccount(state);
   return selectedAccount && selectedAccount.get("wallet", null);
 };
 
 export const getWallet = (
   state: {
-    WalletReducer: WalletState;
+    EthWalletReducer: WalletState;
   },
   accountID: string
 ): BaseWallet | null => {
-  return state.WalletReducer.getIn(["accounts", accountID, "wallet"], null);
+  return state.EthWalletReducer.getIn(["accounts", accountID, "wallet"], null);
 };

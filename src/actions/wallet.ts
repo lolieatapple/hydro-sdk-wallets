@@ -220,7 +220,7 @@ export const hideWalletModal = () => {
 
 export const loadWallet = (type: string, action?: any) => {
   return (dispatch: any, getState: any) => {
-    const LocalWallet = getState().WalletReducer.get("LocalWallet") || HydroWallet;
+    const LocalWallet = getState().EthWalletReducer.get("LocalWallet") || HydroWallet;
     switch (type) {
       case ExtensionWallet.TYPE:
         return dispatch(loadExtensionWallet());
@@ -358,7 +358,7 @@ export const loadWalletConnectWallet = () => {
 
 export const loadLocalWallets = () => {
   return (dispatch: any, getState: any) => {
-    const LocalWallet = getState().WalletReducer.get("LocalWallet") || HydroWallet;
+    const LocalWallet = getState().EthWalletReducer.get("LocalWallet") || HydroWallet;
     LocalWallet.list().map((wallet: any) => {
       dispatch(watchWallet(wallet));
     });
@@ -447,22 +447,22 @@ export const watchWallet = (wallet: BaseWallet) => {
       }
 
       const walletIsLocked = wallet.isLocked(address);
-      const walletStoreLocked = getState().WalletReducer.getIn(["accounts", accountID, "isLocked"]);
+      const walletStoreLocked = getState().EthWalletReducer.getIn(["accounts", accountID, "isLocked"]);
       if (walletIsLocked !== walletStoreLocked) {
         dispatch(walletIsLocked ? lockAccount(accountID) : unlockAccount(accountID));
       }
 
-      const currentAddressInStore = getState().WalletReducer.getIn(["accounts", accountID, "address"]);
+      const currentAddressInStore = getState().EthWalletReducer.getIn(["accounts", accountID, "address"]);
       if (currentAddressInStore !== address) {
         dispatch(loadAddress(accountID, address));
         const lastSelectedAccountID = window.localStorage.getItem("HydroWallet:lastSelectedAccountID");
-        const currentSelectedAccountID = getState().WalletReducer.get("selectedAccountID");
+        const currentSelectedAccountID = getState().EthWalletReducer.get("selectedAccountID");
         if (!currentSelectedAccountID && (lastSelectedAccountID === accountID || !lastSelectedAccountID)) {
           dispatch(selectAccount(accountID, type));
         }
       }
-      const selectedAccountID = getState().WalletReducer.get("selectedAccountID");
-      const selectedWalletType = getState().WalletReducer.get("selectedWalletType");
+      const selectedAccountID = getState().EthWalletReducer.get("selectedAccountID");
+      const selectedWalletType = getState().EthWalletReducer.get("selectedWalletType");
       if (
         address &&
         accountID !== selectedAccountID &&
@@ -479,11 +479,11 @@ export const watchWallet = (wallet: BaseWallet) => {
     const watchBalance = async () => {
       const timerKey = TIMER_KEYS.BALANCE;
 
-      const address = getState().WalletReducer.getIn(["accounts", accountID, "address"]);
+      const address = getState().EthWalletReducer.getIn(["accounts", accountID, "address"]);
       if (address) {
         try {
           const balance = await wallet.getBalance(address);
-          const balanceInStore = getState().WalletReducer.getIn(["accounts", accountID, "balance"]);
+          const balanceInStore = getState().EthWalletReducer.getIn(["accounts", accountID, "balance"]);
 
           if (balance.toString() !== balanceInStore.toString()) {
             dispatch(loadBalance(accountID, balance));
@@ -494,7 +494,7 @@ export const watchWallet = (wallet: BaseWallet) => {
           }
         }
       }
-      const currentSelectedAccountID = getState().WalletReducer.get("selectedAccountID");
+      const currentSelectedAccountID = getState().EthWalletReducer.get("selectedAccountID");
       const watcherRate = getWatcherRate(currentSelectedAccountID, accountID);
       const nextTimer = window.setTimeout(() => watchBalance(), watcherRate);
       setTimer(accountID, timerKey, nextTimer);
@@ -504,7 +504,7 @@ export const watchWallet = (wallet: BaseWallet) => {
       const timerKey = TIMER_KEYS.NETWORK;
       try {
         const networkId = await wallet.loadNetworkId();
-        if (networkId && networkId !== getState().WalletReducer.getIn(["accounts", accountID, "networkId"])) {
+        if (networkId && networkId !== getState().EthWalletReducer.getIn(["accounts", accountID, "networkId"])) {
           dispatch(loadNetwork(accountID, networkId));
         } else {
           const nextTimer = window.setTimeout(() => watchNetwork(), 3000);

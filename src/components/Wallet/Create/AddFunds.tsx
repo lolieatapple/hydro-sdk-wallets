@@ -9,8 +9,8 @@ interface Props {
   walletTranslations: { [key: string]: any };
 }
 
-const mapStateToProps = (state: { WalletReducer: WalletState }) => {
-  const WalletState = state.WalletReducer;
+const mapStateToProps = (state: { EthWalletReducer: WalletState }) => {
+  const WalletState = state.EthWalletReducer;
   return {
     walletTranslations: WalletState.get("walletTranslations")
   };

@@ -16,7 +16,7 @@ interface State {
 }
 
 const mapStateToProps = (state: any) => {
-  const walletState: WalletState = state.WalletReducer;
+  const walletState: WalletState = state.EthWalletReducer;
   const walletCache = walletState.get("walletCache");
   return {
     wallet: walletCache.wallet,

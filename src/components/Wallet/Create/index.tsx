@@ -21,8 +21,8 @@ interface State {
   errorMsg: string | null;
 }
 
-const mapStateToProps = (state: { WalletReducer: WalletState }) => {
-  const walletState = state.WalletReducer;
+const mapStateToProps = (state: { EthWalletReducer: WalletState }) => {
+  const walletState = state.EthWalletReducer;
   return {
     walletTranslations: walletState.get("walletTranslations"),
     LocalWallet: walletState.get("LocalWallet") || HydroWallet
