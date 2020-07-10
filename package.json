@@ -1,6 +1,6 @@
 {
-  "name": "@gongddex/hydro-sdk-wallet",
-  "version": "0.0.155",
+  "name": "@wanchain/hydro-sdk-wallet",
+  "version": "0.1.0",
   "main": "./build/index.js",
   "files": [
     "build",
@@ -69,10 +69,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HydroProtocol/hydro-sdk-wallets.git"
+    "url": "git+https://github.com/lolieatapple/hydro-sdk-wallets.git"
   },
   "bugs": {
-    "url": "https://github.com/HydroProtocol/hydro-sdk-wallets/issues"
+    "url": "https://github.com/lolieatapple/hydro-sdk-wallets/issues"
   },
-  "homepage": "https://github.com/HydroProtocol/hydro-sdk-wallets#readme"
+  "homepage": "https://github.com/lolieatapple/hydro-sdk-wallets#readme"
 }
