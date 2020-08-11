@@ -189,30 +189,6 @@
     "@ethersproject/constants" "^5.0.0"
     "@ethersproject/logger" "^5.0.0"
 
-"eth-sdk-wallet@0.0.155":
-  version "0.0.155"
-  resolved "https://registry.npmjs.org/eth-sdk-wallet/-/hydro-sdk-wallet-0.0.155.tgz#bba3022cd8c6561e63d66296974124c1b930a91e"
-  integrity sha512-shYNkLxD3T8LIimOKOr+wS80xXxpbZfoZbYwTiirsnhmpGE6WzD5SsUTXSDCaoPuBXCdHayIKfRh8tJctDtXiw==
-  dependencies:
-    "@ledgerhq/hw-app-eth" "5.17.0"
-    "@ledgerhq/hw-transport-webusb" "5.17.0"
-    "@toruslabs/torus-embed" "0.2.3"
-    "@walletconnect/browser" "1.0.0-beta.38"
-    "@walletconnect/core" "1.0.0-beta.38"
-    "@walletconnect/types" "1.0.0-beta.38"
-    "@walletconnect/utils" "1.0.0-beta.38"
-    await-lock "^1.1.3"
-    clipboard-copy "^2.0.0"
-    ethereumjs-tx "^1.3.7"
-    ethereumjs-util "5.2.0"
-    ethers "^4.0.27"
-    fortmatic "^1.0.0"
-    immutable "^3.8.2"
-    qr-image "^3.2.0"
-    react-paginate "^6.3.0"
-    trezor-connect "^7.0.5"
-    walletlink "^2.0.0-rc.1"
-
 "@ledgerhq/devices@^5.17.0", "@ledgerhq/devices@^5.19.0":
   version "5.19.0"
   resolved "https://registry.npmjs.org/@ledgerhq/devices/-/devices-5.19.0.tgz#6b55980628181da7e1b02ae668657821b2011209"
@@ -2385,6 +2361,30 @@ eth-json-rpc-errors@^2.0.1:
   integrity sha512-uBCRM2w2ewusRHGxN8JhcuOb2RN3ueAOYH/0BhqdFmQkZx5lj5+fLKTz0mIVOzd4FG5/kUksCzCD7eTEim6gaA==
   dependencies:
     fast-safe-stringify "^2.0.6"
+
+eth-sdk-wallet@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/eth-sdk-wallet/-/eth-sdk-wallet-0.1.2.tgz#55e63fbd71a534513c3cec8ee12624ce0fb3551a"
+  integrity sha512-oKZ4M8cMO6YzKwbAGXAjVZ/zTv45pdlXmSs5v+ZP7TMfvlLDPmrChUe/j/tCusp4W8PfIgBdbvzuwJmP1ky6HA==
+  dependencies:
+    "@ledgerhq/hw-app-eth" "5.17.0"
+    "@ledgerhq/hw-transport-webusb" "5.17.0"
+    "@toruslabs/torus-embed" "0.2.3"
+    "@walletconnect/browser" "1.0.0-beta.38"
+    "@walletconnect/core" "1.0.0-beta.38"
+    "@walletconnect/types" "1.0.0-beta.38"
+    "@walletconnect/utils" "1.0.0-beta.38"
+    await-lock "^1.1.3"
+    clipboard-copy "^2.0.0"
+    ethereumjs-tx "^1.3.7"
+    ethereumjs-util "5.2.0"
+    ethers "^4.0.27"
+    fortmatic "^1.0.0"
+    immutable "^3.8.2"
+    qr-image "^3.2.0"
+    react-paginate "^6.3.0"
+    trezor-connect "^7.0.5"
+    walletlink "^2.0.0-rc.1"
 
 ethereum-common@^0.0.18:
   version "0.0.18"

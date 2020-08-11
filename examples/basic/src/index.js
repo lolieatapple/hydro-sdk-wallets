@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { EthWalletReducer } from "eth-sdk-wallet";
+// import { WalletReducer } from "@gongddex/hydro-sdk-wallet";
+
 import thunk from "redux-thunk";
 
 const dest = document.getElementById("content");
 const reducer = combineReducers({
   EthWalletReducer
+  // WalletReducer
 });
 
 const enhancers = [];

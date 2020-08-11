@@ -60,19 +60,26 @@ export default class ExtensionWallet extends BaseWallet {
       if (!this.isSupported()) {
         reject(BaseWallet.NotSupportedError);
       }
-      if (txParams.gasLimit) {
-        txParams.gas = "0x" + txParams.gasLimit.toString(16);
-        txParams.gasLimit = "0x" + txParams.gasLimit.toString(16);
-      }
-      if (txParams.gasPrice) {
-        txParams.gasPrice = "0x" + txParams.gasPrice.toString(16);
-      }
-      const res = await this.sendCustomRequest("eth_sendTransaction", [txParams]);
-      if (res.error) {
-        reject(res.error);
-      } else {
-        resolve(res.result);
-      }
+      // if (txParams.gasLimit) {
+      //   txParams.gas = "0x" + txParams.gasLimit.toString(16);
+      //   txParams.gasLimit = "0x" + txParams.gasLimit.toString(16);
+      // }
+      // if (txParams.gasPrice) {
+      //   txParams.gasPrice = "0x" + txParams.gasPrice.toString(16);
+      // }
+      const method = 'eth_sendTransaction'
+      const params = [txParams];
+      window.ethereum.request({ method, params }).then((result: any)=>{
+        resolve(result);
+      }).catch((err: Error)=>{
+        reject(err);
+      })
+      // const res = await this.sendCustomRequest("eth_sendTransaction", [txParams]);
+      // if (res.error) {
+      //   reject(res.error);
+      // } else {
+      //   resolve(res.result);
+      // }
     });
   }
 
