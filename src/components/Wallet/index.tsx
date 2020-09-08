@@ -18,8 +18,8 @@ import {
   Dcent,
   CoinbaseWallet,
   Fortmatic,
-  Trezor,
-  Torus
+  Trezor
+  // Torus
 } from "../../wallets";
 import { WalletState, AccountState } from "../../reducers/wallet";
 import { getSelectedAccount } from "../../selector/wallet";
@@ -40,8 +40,8 @@ import {
   loadFortmaticWallet,
   loadExtensionWallet,
   loadLedger,
-  loadTrezor,
-  loadTorus
+  loadTrezor
+  // loadTorus
 } from "../../actions/wallet";
 import Svg from "../Svg";
 import { Map } from "immutable";
@@ -228,8 +228,8 @@ class Wallet extends React.PureComponent<Props, State> {
       selectedWalletType === Fortmatic.TYPE ||
       selectedWalletType === ExtensionWallet.TYPE ||
       selectedWalletType === Ledger.TYPE ||
-      selectedWalletType === Trezor.TYPE ||
-      selectedWalletType === Torus.TYPE
+      selectedWalletType === Trezor.TYPE
+      // selectedWalletType === Torus.TYPE
     ) {
       const isConnecting = connecting.get(selectedWalletType, false);
       return (
@@ -260,9 +260,7 @@ class Wallet extends React.PureComponent<Props, State> {
       dispatch(loadLedger());
     } else if (selectedWalletType === Trezor.TYPE) {
       dispatch(loadTrezor());
-    } else if (selectedWalletType === Torus.TYPE) {
-      dispatch(loadTorus());
-    }
+    } 
   }
 
   private renderStepContent() {
@@ -295,8 +293,7 @@ class Wallet extends React.PureComponent<Props, State> {
         } else if (
           selectedWalletType === Dcent.TYPE ||
           selectedWalletType === CoinbaseWallet.TYPE ||
-          selectedWalletType === Fortmatic.TYPE ||
-          selectedWalletType === Torus.TYPE
+          selectedWalletType === Fortmatic.TYPE
         ) {
           const selectedAccount = accounts.get(selectedWalletType);
           const selectedAddress = selectedAccount ? selectedAccount.get("address") : null;
@@ -445,6 +442,7 @@ class Wallet extends React.PureComponent<Props, State> {
           onSelect: (option: Option) => this.onSelect(option)
         }
       ];
+      /*
       if (fortmaticApiKey) {
         menuOptions = menuOptions.concat([
           {
@@ -550,6 +548,7 @@ class Wallet extends React.PureComponent<Props, State> {
           onSelect: (option: Option) => this.onSelect(option)
         }
       ]);
+      */
     }
     return menuOptions.concat(this.localWalletOptions());
   }

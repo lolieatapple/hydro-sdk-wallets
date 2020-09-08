@@ -12,8 +12,8 @@ import {
   CoinbaseWallet,
   getNetworkID,
   Fortmatic,
-  Trezor,
-  Torus
+  Trezor
+  // Torus
 } from "../wallets";
 import { AccountState } from "../reducers/wallet";
 export const WALLET_STEPS = {
@@ -280,19 +280,19 @@ export const loadFortmaticWallet = (apiKey: string) => {
   };
 };
 
-export const loadTorus = () => {
-  return async (dispatch: any) => {
-    try {
-      dispatch(connectWallet(Torus.TYPE));
-      const wallet = new Torus();
-      await wallet.enable();
-      dispatch(watchWallet(wallet));
-    } catch (e) {
-      dispatch(connectWalletFinished(Torus.TYPE));
-      throw e;
-    }
-  };
-};
+// export const loadTorus = () => {
+//   return async (dispatch: any) => {
+//     try {
+//       dispatch(connectWallet(Torus.TYPE));
+//       const wallet = new Torus();
+//       await wallet.enable();
+//       dispatch(watchWallet(wallet));
+//     } catch (e) {
+//       dispatch(connectWalletFinished(Torus.TYPE));
+//       throw e;
+//     }
+//   };
+// };
 
 export const loadExtensionWallet = () => {
   return async (dispatch: any) => {
@@ -432,7 +432,7 @@ export const watchWallet = (wallet: BaseWallet) => {
           type === Ledger.TYPE ||
           type === Dcent.TYPE ||
           type === Fortmatic.TYPE ||
-          type === Torus.TYPE ||
+          // type === Torus.TYPE ||
           type === CoinbaseWallet.TYPE ||
           type === Trezor.TYPE
         ) {
@@ -467,7 +467,7 @@ export const watchWallet = (wallet: BaseWallet) => {
         address &&
         accountID !== selectedAccountID &&
         type === selectedWalletType &&
-        (type === CoinbaseWallet.TYPE || type === Dcent.TYPE || type === Fortmatic.TYPE || type === Torus.TYPE)
+        (type === CoinbaseWallet.TYPE || type === Dcent.TYPE || type === Fortmatic.TYPE)
       ) {
         dispatch(selectAccount(accountID, type));
       }

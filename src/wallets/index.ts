@@ -7,7 +7,7 @@ import WalletConnectWallet from "./WalletConnectWallet";
 import Ledger from "./ledger";
 import Dcent from "./dcent";
 import Fortmatic from "./fortmatic";
-import Torus from "./torus";
+// import Torus from "./torus";
 import Trezor from "./trezor";
 import request from "request";
 import { BigNumber } from "ethers/utils";
@@ -28,8 +28,8 @@ export {
   Dcent,
   Fortmatic,
   CoinbaseWallet,
-  Trezor,
-  Torus
+  Trezor
+  // Torus
 };
 
 export const payloadId = (): number => {
@@ -216,5 +216,5 @@ export const needConnectWalletTypes = [
   CoinbaseWallet.TYPE,
   Fortmatic.TYPE,
   WalletConnectWallet.TYPE,
-  Torus.TYPE
+  // Torus.TYPE
 ];
