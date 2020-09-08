@@ -21,7 +21,7 @@ export default {
   confirmErrorMsg: "Confirmation must match",
   createDesc:
     "Once you click the Next button you will be taken through the wallet creation process. ***Please complete all three steps, or your wallet will NOT be created.***",
-  dialogTitle: "Hydro SDK Wallet",
+  dialogTitle: "Web Wallet",
   dialogSubtitle: "",
   selectWallet: "Select Wallet",
   close: "Close",
